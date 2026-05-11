@@ -1,0 +1,7 @@
+# Editor swap files
+*.un~
+*.swp
+
+# Compiled binaries and objects
+*.bin
+*.o
