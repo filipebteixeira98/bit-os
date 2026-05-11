@@ -45,6 +45,13 @@ You will need the following tools installed:
 * **LD**: The GNU linker.
 * **QEMU**: To emulate the hardware and run the OS.
 
+> [!IMPORTANT]
+> Before building, ensure you have the necessary tools installed. On Ubuntu or Debian-based systems, run:
+
+```bash
+sudo apt install nasm gcc qemu-system-x86
+```
+
 ### 🔨 Compilation & Build
 Follow these steps to compile the source code and create the bootable image:
 
