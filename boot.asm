@@ -56,3 +56,12 @@ gdt_end:
 gdt_descriptor:
   dw gdt_end - gdt_start - 1
   dd gdt_start
+
+switch_to_pm:
+  cli
+
+  lgdt [gdt_descriptor]
+
+mov eax, cr0
+or eax, 0x1
+mov cr0, eax
