@@ -1,8 +1,8 @@
 <p align="center" >
-  <img src="src/assets/logo.png" width="175" alt="last-commit" >
+  <img src=".github/logo.png" width="175" alt="last-commit" >
 </p>
 
-# 🖥️ SimpleOS - Educational Operating System
+# 🖥️ BitOS - Educational Operating System
 
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/filipebteixeira98/bit-os?color=A9A9A9&style=flat-square">
