@@ -65,3 +65,23 @@ switch_to_pm:
 mov eax, cr0
 or eax, 0x1
 mov cr0, eax
+
+jmp 0x08:init_pm
+
+[bits 32]
+
+init_pm:
+  mov ax, 0x10
+  mov ds, ax
+  mov ss, ax
+  mov es, ax
+  mov fs, ax
+  mov gs, ax
+
+mov ebp, 0x90000
+mov esp, ebp
+
+call KERNEL_OFFSET
+
+times 510 - ($ - $$) db 0
+dw 0xaa55
