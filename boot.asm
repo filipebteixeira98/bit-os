@@ -4,7 +4,7 @@ mov ax, 0x0000
 mov es, ax
 
 mov bx, 0x1000
-mov dh, 2
+mov dh, 1
 
 call load_kernel
 
