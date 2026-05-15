@@ -10,8 +10,8 @@ void pic_remap() {
   port_byte_out(0xA1, 0x02);
   port_byte_out(0x21, 0x01);
   port_byte_out(0xA1, 0x01);
-  port_byte_out(0x21, 0x00);
-  port_byte_out(0xA1, 0x00);
+  port_byte_out(0x21, 0xFD);
+  port_byte_out(0xA1, 0xFF);
 }
 
 void pic_send_eoi(unsigned char irq) {

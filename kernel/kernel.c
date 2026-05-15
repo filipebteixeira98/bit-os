@@ -2,12 +2,12 @@
 #include "idt.h"
 #include "pic.h"
 
+extern void isr1();
+
 void kernel_main() {
   clear_screen();
 
   pic_remap();
-
-  extern void isr1();
 
   set_idt_gate(0x21, (unsigned)isr1);
 

@@ -2,6 +2,8 @@
 
 global isr1
 
+extern keyboard_handler
+
 isr1:
   cli
 
@@ -10,7 +12,5 @@ isr1:
   call keyboard_handler
 
   popa
-
-  sti
 
   iret
