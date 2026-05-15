@@ -1,16 +1,22 @@
 #include "screen.h"
+#include "idt.h"
+#include "pic.h"
 
 void kernel_main() {
   clear_screen();
 
-  print("Bit-OS Kernel\n");
-  print("Protected Mode Activated\n");
+  pic_remap();
 
   extern void isr1();
 
   set_idt_gate(0x21, (unsigned)isr1);
 
   set_idt();
+
+  __asm__ volatile("sti");
+
+  print("Bit-OS Kernel\n");
+  print("Protected Mode Activated\n");
 
   while(1);
 }

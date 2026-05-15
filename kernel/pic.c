@@ -1,0 +1,22 @@
+#include "ports.h"
+#include "pic.h"
+
+void pic_remap() {
+  port_byte_out(0x20, 0x11);
+  port_byte_out(0xA0, 0x11);
+  port_byte_out(0x21, 0x20);
+  port_byte_out(0xA1, 0x28);
+  port_byte_out(0x21, 0x04);
+  port_byte_out(0xA1, 0x02);
+  port_byte_out(0x21, 0x01);
+  port_byte_out(0xA1, 0x01);
+  port_byte_out(0x21, 0x00);
+  port_byte_out(0xA1, 0x00);
+}
+
+void pic_send_eoi(unsigned char irq) {
+  if (irq >= 8)
+    port_byte_out(0xA0, 0x20);
+
+  port_byte_out(0x20, 0x20);
+}

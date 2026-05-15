@@ -1,5 +1,6 @@
 #include "ports.h"
 #include "screen.h"
+#include "pic.h"
 
 char keymap[] = {
     0,
@@ -33,4 +34,6 @@ void keyboard_handler() {
   char letter = keymap[scancode];
 
   print_char(letter);
+
+  pic_send_eoi(1);
 }
