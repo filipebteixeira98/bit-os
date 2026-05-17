@@ -23,3 +23,15 @@ int strcmp(const char *a, const char *b) {
 
   return a[i] == b[i];
 }
+
+void execute_command() {
+  if (strcmp(command_buffer, "help")) {
+    print("\nCommands:\n");
+    print("help - show commands\n");
+    print("clear - clear screen\n");
+  } else if (strcmp(command_buffer, "clear")) {
+    clear_screen();
+  } else {
+    print("\nUnknown command\n");
+  }
+}
