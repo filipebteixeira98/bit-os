@@ -58,4 +58,10 @@ void shell_handle_char(char c) {
 
     return;
   }
+
+  command_buffer[command_index] = c;
+
+  command_index++;
+
+  print_char(c);
 }
