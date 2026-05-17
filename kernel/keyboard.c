@@ -33,7 +33,7 @@ void keyboard_handler() {
 
   char letter = keymap[scancode];
 
-  print_char(letter);
+  shell_handle_char(letter);
 
   pic_send_eoi(1);
 }
