@@ -6,3 +6,7 @@
 char command_buffer[MAX_COMMAND_LENGTH];
 
 int command_index = 0;
+
+void shell_init() {
+  print("> ");
+}
