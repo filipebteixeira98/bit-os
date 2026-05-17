@@ -48,4 +48,14 @@ void shell_handle_char(char c) {
 
     return;
   }
+
+  if (c == '\b') {
+    if (command_index > 0) {
+      command_index--;
+
+      print('\b');
+    }
+
+    return;
+  }
 }
