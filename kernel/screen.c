@@ -42,6 +42,17 @@ void print_char(char c) {
     video_memory[offset + 1] = WHITE_ON_BLACK;
     offset += 2;
   }
+  
+  if (c == '\b') {
+    offset -= 2;
+
+    video_memory[offset] = ' ';
+    video_memory[offset + 1] = WHITE_ON_BLACK;
+
+    set_cursor(offset);
+
+    return;
+  }
 
   set_cursor(offset);
 }
