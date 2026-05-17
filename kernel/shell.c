@@ -35,3 +35,17 @@ void execute_command() {
     print("\nUnknown command\n");
   }
 }
+
+void shell_handle_char(char c) {
+  if (c == '\n') {
+    command_buffer[command_index] = '\0';
+
+    execute_command();
+
+    command_index = 0;
+
+    print("\n> ");
+
+    return;
+  }
+}
