@@ -1,6 +1,7 @@
 #include "screen.h"
 #include "idt.h"
 #include "pic.h"
+#include "shell.h"
 
 extern void isr1();
 
@@ -17,6 +18,8 @@ void kernel_main() {
 
   print("Bit-OS Kernel\n");
   print("Protected Mode Activated\n");
+
+  shell_init();
 
   while(1);
 }
