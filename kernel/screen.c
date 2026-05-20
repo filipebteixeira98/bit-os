@@ -33,6 +33,23 @@ void print_char(char c) {
 
   int offset = get_cursor();
 
+  if (c == '\b') {
+    int offset = get_cursor();
+
+    if (offset > 0) {
+      offset -= 2;
+
+      char *video_memory = (char*) VIDEO_MEMORY;
+
+      video_memory[offset] = ' ';
+      video_memory[offset + 1] = WHITE_ON_BLACK;
+
+      set_cursor(offset);
+    }
+
+    return;
+  }
+
   if (c == '\n') {
     int rows = offset / (2 * MAX_COLS);
 
@@ -43,17 +60,6 @@ void print_char(char c) {
     offset += 2;
   }
   
-  if (c == '\b') {
-    offset -= 2;
-
-    video_memory[offset] = ' ';
-    video_memory[offset + 1] = WHITE_ON_BLACK;
-
-    set_cursor(offset);
-
-    return;
-  }
-
   set_cursor(offset);
 }
 
