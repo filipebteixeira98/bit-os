@@ -53,7 +53,7 @@ void shell_handle_char(char c) {
     if (command_index > 0) {
       command_index--;
 
-      print('\b');
+      print_char('\b');
     }
 
     return;

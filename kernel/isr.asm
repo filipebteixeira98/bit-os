@@ -13,4 +13,6 @@ isr1:
 
   popa
 
+  sti
+
   iret
