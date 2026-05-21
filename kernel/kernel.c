@@ -4,6 +4,7 @@
 #include "shell.h"
 #include "timer.h"
 #include "memory.h"
+#include "paging.h"
 
 extern void isr0();
 extern void isr1();
@@ -37,6 +38,8 @@ void kernel_main() {
   test[5] = '\0';
 
   print(test);
+
+  initialize_paging();
 
   while(1);
 }
