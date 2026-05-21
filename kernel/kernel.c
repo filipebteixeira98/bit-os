@@ -3,6 +3,7 @@
 #include "pic.h"
 #include "shell.h"
 #include "timer.h"
+#include "memory.h"
 
 extern void isr0();
 extern void isr1();
@@ -17,7 +18,7 @@ void kernel_main() {
 
   set_idt();
 
-  init_timer(2);
+  init_timer(100);
 
   __asm__ volatile("sti");
 
@@ -25,6 +26,17 @@ void kernel_main() {
   print("Protected Mode Activated\n");
 
   shell_init();
+
+  char* test = (char*) kmalloc(6);
+
+  test[0] = 'H';
+  test[1] = 'e';
+  test[2] = 'l';
+  test[3] = 'l';
+  test[4] = 'o';
+  test[5] = '\0';
+
+  print(test);
 
   while(1);
 }
