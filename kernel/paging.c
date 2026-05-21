@@ -27,8 +27,6 @@ void initialize_paging() {
   cr0 |= 0x80000000;
 
   __asm__ volatile("mov %0, %%cr0" : : "r"(cr0));
-
-  print("Paging enabled\n");
 }
 
 void page_fault_handler() {

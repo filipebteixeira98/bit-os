@@ -30,22 +30,7 @@ void kernel_main() {
 
   shell_init();
 
-  char* test = (char*) kmalloc(6);
-
-  test[0] = 'H';
-  test[1] = 'e';
-  test[2] = 'l';
-  test[3] = 'l';
-  test[4] = 'o';
-  test[5] = '\0';
-
-  print(test);
-
   initialize_paging();
-
-  unsigned int *prt = (unsigned int*)0xA0000000;
-
-  *prt = 123;
 
   while(1);
 }
