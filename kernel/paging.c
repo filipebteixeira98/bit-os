@@ -30,3 +30,13 @@ void initialize_paging() {
 
   print("Paging enabled\n");
 }
+
+void page_fault_handler() {
+  unsigned int faulting_address;
+
+  __asm__ volatile("mov %%cr2, %0" : "=r"(faulting_address));
+
+  print("Page fault\n");
+
+  while(1);
+}

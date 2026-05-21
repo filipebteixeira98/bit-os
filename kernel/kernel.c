@@ -8,6 +8,7 @@
 
 extern void isr0();
 extern void isr1();
+extern void isr14();
 
 void kernel_main() {
   clear_screen();
@@ -16,6 +17,7 @@ void kernel_main() {
 
   set_idt_gate(0x20, (unsigned)isr0);
   set_idt_gate(0x21, (unsigned)isr1);
+  set_idt_gate(14, (unsigned)isr14);
 
   set_idt();
 
@@ -40,6 +42,10 @@ void kernel_main() {
   print(test);
 
   initialize_paging();
+
+  unsigned int *prt = (unsigned int*)0xA0000000;
+
+  *prt = 123;
 
   while(1);
 }
